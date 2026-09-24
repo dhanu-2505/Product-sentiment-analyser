@@ -1,0 +1,28 @@
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+coverage/
+*.log
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.pytest_cache/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Data
+*.sqlite3
+*.db
+
+# Build artifacts
+build/
