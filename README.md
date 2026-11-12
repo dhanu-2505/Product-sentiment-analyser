@@ -1,70 +1,30 @@
-# Product Sentiment Analyzer and Review Dashboard
+# SentiLens — Product Intelligence Platform
 
-A premium SaaS-style product intelligence dashboard for collecting ecommerce product reviews, analyzing sentiment, and visualizing customer feedback trends.
+SentiLens helps teams turn customer reviews into usable product intelligence. The app supports product searches, review collection, sentiment classification, analytics dashboards, saved-item workflows, and product comparisons.
 
 ## Overview
 
-This project helps users search products on Amazon and Flipkart, scrape available reviews, process them with NLP sentiment analysis, store results in PostgreSQL, and explore insights through an interactive dashboard.
+The project focuses on real product review analysis and customer voice extraction. It combines a FastAPI backend, a React frontend, SQLite-friendly local persistence, and a VADER-based sentiment pipeline to generate practical insights from product reviews.
 
 ## Features
 
-- Search and analyze product sentiment across Amazon and Flipkart
-- Review scraping with Selenium + BeautifulSoup
-- VADER sentiment classification
-- PostgreSQL persistence
-- Dashboard analytics with charts and KPI cards
-- Review explorer with filters and search
-- Historical analysis tracking
-- Production-ready backend architecture
+- Product discovery and search
+- Scraper-first review ingestion with mock fallback
+- VADER sentiment scoring
+- Review analytics and summary metrics
+- Search history and saved-product tracking
+- Product comparison endpoint and dashboard route
+- Premium dark SaaS-style UI
+- Auth flow with JWT-backed registration and login
 
-## Tech Stack
+## Architecture
 
-### Frontend
-- React + Vite
-- JavaScript or TypeScript
-- Tailwind CSS
-- Recharts
-- React Router
+- Frontend: React + Vite + Recharts
+- Backend: FastAPI + SQLAlchemy
+- Analytics: VADER + review aggregation logic
+- Data: SQLite by default, PostgreSQL-ready configuration
 
-### Backend
-- Python
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
-- Selenium
-- BeautifulSoup
-- VADER
-
-## Project Structure
-
-```text
-product-sentiment-analyzer/
-├── frontend/
-├── backend/
-├── data/
-├── docs/
-├── .gitignore
-├── .env.example
-├── README.md
-└── .gitignore
-```
-
-## Environment Setup
-
-1. Install Node.js 18+
-2. Install Python 3.10+
-3. Install PostgreSQL
-4. Copy `.env.example` to `.env` and fill in values
-
-## Local Development
-
-### Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
+## Local development
 
 ### Backend
 
@@ -76,28 +36,30 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-## Database Setup
+### Frontend
 
-Create a PostgreSQL database named `product_sentiment` and update the `DATABASE_URL` in `.env`.
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## Deployment Notes
+## Testing
 
-- Frontend: Vercel or Netlify
-- Backend: Render
-- Database: Supabase PostgreSQL or any managed PostgreSQL service
+```bash
+cd backend
+.\.venv\Scripts\python.exe -m pytest -q
+```
 
-## Scraping Limitations
+```bash
+cd frontend
+npm run build
+```
 
-This project uses Selenium for browser automation. Scraping should respect website terms, robots rules, and rate limits. If a site blocks scraping or returns a CAPTCHA, the app should use fallback/mock data for demo and testing.
+## Documentation
 
-## Future Enhancements
+See the docs directory for architecture, API, sentiment, analytics, deployment, and scraping notes.
 
-- Multi-platform expansion beyond Amazon and Flipkart
-- NLP model comparison (VADER vs TextBlob vs transformer-based models)
-- Automated alerts and reporting
-- Historical trend forecasting
-- Batch product analysis
+## Notes
 
-## Status
-
-Phase 1 project setup and folder structure are complete.
+This project is built for practical product intelligence workflows and supports a real analysis pipeline from product search through review sentiment and dashboard generation. Live scraping may be limited by site protections, so the fallback mock system is intentionally part of the same processing pipeline.
